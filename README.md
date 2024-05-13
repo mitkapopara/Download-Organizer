@@ -21,6 +21,8 @@ If the destination file already exists, the unique_filename method modifies the 
 
 Setup and Usage:
 Install Python and watchdog using pip install watchdog.
+
 Run the script with python path_to_script.py.
+
 Files downloaded during the script’s runtime are automatically organized.
 This script is ideal for users frequently managing large numbers of files, ensuring their workspace remains organized without manual intervention.
