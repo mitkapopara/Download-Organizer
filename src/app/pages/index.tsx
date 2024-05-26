@@ -1,6 +1,5 @@
-"use client";
-
 import { useState } from "react";
+import axios from "axios";
 
 const Home = () => {
   const [folderToTrack, setFolderToTrack] = useState("");
@@ -9,18 +8,11 @@ const Home = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/organize", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          folderToTrack,
-          folderDestination,
-        }),
+      const response = await axios.post("/api/organize", {
+        folderToTrack,
+        folderDestination,
       });
-      const data = await response.json();
-      alert(data.message);
+      alert(response.data.message);
     } catch (error) {
       console.error(error);
       alert("An error occurred. Please try again.");
